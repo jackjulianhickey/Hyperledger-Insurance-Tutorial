@@ -1,5 +1,5 @@
 # risk-analysis-tutorial
-The full tutorial for this application can be found here: https://medium.com/@jackjulianhickey/build-a-insurance-application-with-hyperledger-composer-and-react-js-part-1-3ebe7ad54986?postPublishedType=repub
+The full tutorial for this application can be found here: https://medium.com/@jackjulianhickey/build-a-insurance-application-with-hyperledger-composer-and-react-js-part-1-3ebe7ad54986
 
 ## running the application
 After cloning the application and installing Hyperledger Composer and its requirements run the following commands to get it started.
