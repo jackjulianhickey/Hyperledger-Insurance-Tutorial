@@ -1,0 +1,6 @@
+query selectInsuranceCompanyByInsuredAsset {
+  description: "Select an insurance company by an insured asset"
+  statement:
+    SELECT org.acme.riskanalysis.InsuranceOffer
+      WHERE ((privateAsset == _$privateAsset) AND (status == 'accepted'))
+}

@@ -1,0 +1,100 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace org.acme.riskanalysis
+
+participant Policyholder identified by id {
+  o String id
+  o String name
+  o Double balance default = 0.0
+  o Integer noClaimsYears default = 0
+}
+
+participant InsuranceCompany identified by id {
+  o String id
+  o String name
+  o Double balance default = 0.0
+  o Integer insuranceContracts default = 0
+}
+
+asset PrivateAsset identified by id {
+  o String id
+  o AssetType assetType
+  o Double value
+  --> Policyholder policyholder
+  o Integer durationInMonths
+  o Double riskAnalysisScore default = 0.0
+  --> InsuranceCompany insuranceCompany optional
+}
+
+enum AssetType {
+  o CAR
+  o HOUSE
+  o PHONE
+}
+
+
+asset InsuranceOffer identified by id {
+  o String id
+  --> Policyholder policyholder
+  --> InsuranceCompany insuranceCompany
+  --> PrivateAsset privateAsset
+  o Double monthlyCost
+  o Integer durationInMonths
+  o String status default = "pending"
+}
+
+asset Claim identified by id {
+  o String id
+  --> PrivateAsset privateAsset
+  --> Policyholder policyholder
+  --> InsuranceCompany insuranceCompany
+  o String description
+  o Double claimValue
+  o String status default = "pending"
+}
+
+transaction AcceptInsuranceOffer {
+  --> InsuranceOffer offer
+}
+
+transaction MakeInsuranceOffer {
+  --> Policyholder policyholder
+  --> InsuranceCompany insuranceCompany
+  --> PrivateAsset privateAsset
+  o Double monthlyCost
+}
+
+transaction RiskAnalysis {
+  --> PrivateAsset privateAsset
+}
+
+transaction CreateNewAsset {
+  --> Policyholder policyholder
+  o AssetType assetType
+  o Double value
+  o Integer durationInMonths
+}
+
+transaction CreateClaim {
+  --> PrivateAsset privateAsset
+  --> Policyholder policyholder
+  o String description
+  o Double claimValue
+}
+
+transaction ProcessClaim {
+  -->Claim claim
+  o String status
+}
