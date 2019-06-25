@@ -16,11 +16,11 @@ composer archive create -t dir -n .
 ```
 Install the composer business network on the Hyperledger Fabric peers
 ```
-composer network install --card PeerAdmin@hlfv1 --archiveFile risk-analysis-tutorial@0.0.19.bna
+composer network install --card PeerAdmin@hlfv1 --archiveFile risk-analysis-tutorial@0.0.21.bna
 ```
 Start the business network
  ```
-composer network start --networkName risk-analysis-tutorial --networkVersion 0.0.19 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+composer network start --networkName risk-analysis-tutorial --networkVersion 0.0.21 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
 ```
 Import the network admins card
 ```
