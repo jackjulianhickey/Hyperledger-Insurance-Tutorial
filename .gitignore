@@ -2,4 +2,4 @@
 risk-analysis-tutorial/setup.txt
 *.card
 risk-analysis-tutorial/.eslintrc.yml
-
+policyholder_app/node_modules

@@ -3,7 +3,7 @@
     "composer": "^0.20.8"
   },
   "name": "risk-analysis-tutorial",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "risk analysis tutorial",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/risk-analysis-tutorial.bna",

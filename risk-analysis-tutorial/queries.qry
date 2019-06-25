@@ -4,3 +4,17 @@ query selectInsuranceCompanyByInsuredAsset {
     SELECT org.acme.riskanalysis.InsuranceOffer
       WHERE ((privateAsset == _$privateAsset) AND (status == 'accepted'))
 }
+
+query selectAssetByPolicyholder {
+  description: "Select an asset based on the owner"
+  statement:
+    SELECT org.acme.riskanalysis.PrivateAsset
+      WHERE (policyholder == _$policyholder)
+}
+
+query selectInsuranceOffersByPolicyholder {
+  description: "Select an insurance offer based on the policyholder"
+  statement:
+    SELECT org.acme.riskanalysis.InsuranceOffer
+      WHERE (policyholder == _$policyholder)
+}
