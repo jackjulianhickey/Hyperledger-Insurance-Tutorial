@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Get Started
 
-### `Run npm install`
+### `npm install`
 
 ### `npm start`
 
